@@ -13,7 +13,7 @@ Um aplicativo da Web que lida com operações Criar/Recuperar/Atualizar ou Exclu
 
 Crie um CRUD simples que pode criar/recuperar/atualizar/excluir informações de funcionários.
 
-Portanto, nesta aplicação, você pode:
+Portanto, esta aplicação deve:
 
 - Criar uma nova informação do funcionário
 - Consultar a lista de Empregados.
@@ -21,7 +21,12 @@ Portanto, nesta aplicação, você pode:
 - Atualizar as informações de um funcionário
 - Excluir informações de um funcionário
 
+O banco de dados deve conter as informações:
+
 ID_empregado: Inteiro
+
 nome: Texto
+
 Idade: Inteiro
+
 Cargo: Texto
