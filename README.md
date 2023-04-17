@@ -7,7 +7,7 @@ A criação de um CRUD usando Flask para gerenciar um banco de dados de funcion�
 
 ## Técnologias usadas
 
-Python3, Flask, SQLACHEMY
+Python3, Flask, SQLAlchemy, SQlite
 
 
 ## Instalando Dependências
