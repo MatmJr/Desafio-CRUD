@@ -11,7 +11,7 @@ class EmployeeModel(db.Model):
     name = db.Column(db.String())
     age = db.Column(db.Integer())
     position = db.Column(db.String(80))
-    adress = db.Column(db.String(160))
+    adress = db.Column(db.String(80))
 
     def __init__(self, employee_id, name, age, position, adress):
         self.employee_id = employee_id

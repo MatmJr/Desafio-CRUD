@@ -65,8 +65,10 @@ def update(id):
             name = request.form["name"]
             age = request.form["age"]
             position = request.form["position"]
+            adress = request.form["adress"]
             employee = EmployeeModel(
-                employee_id=id, name=name, age=age, position=position
+                employee_id=id, name=name, age=age, position=position,
+                adress=adress
             )
             db.session.add(employee)
             db.session.commit()
