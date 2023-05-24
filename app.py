@@ -24,17 +24,17 @@ def create():
         return render_template("createpage.html")
 
     if request.method == "POST":
-        employee_id = request.form["employee_id"]
+        cpf = request.form["cpf"]
         name = request.form["name"]
         age = request.form["age"]
         position = request.form["position"]
-        adress = request.form["adress"]
+        address = request.form["address"]
         employee = EmployeeModel(
-            employee_id=employee_id,
+            cpf=cpf,
             name=name,
             age=age,
             position=position,
-            adress=adress,
+            address=address,
         )
         db.session.add(employee)
         db.session.commit()
@@ -49,7 +49,7 @@ def RetrieveList():
 
 @app.route("/data/<int:id>")
 def RetrieveEmployee(id):
-    employee = EmployeeModel.query.filter_by(employee_id=id).first()
+    employee = EmployeeModel.query.filter_by(id=id).first()
     if employee:
         return render_template("data.html", employee=employee)
     return f"Employee with id ={id} Doenst exist"
@@ -57,30 +57,25 @@ def RetrieveEmployee(id):
 
 @app.route("/data/<int:id>/update", methods=["GET", "POST"])
 def update(id):
-    employee = EmployeeModel.query.filter_by(employee_id=id).first()
+    employee = EmployeeModel.query.get(id)
+    if not employee:
+        return f"Employee with id = {id} does not exist"
+
     if request.method == "POST":
-        if employee:
-            db.session.delete(employee)
-            db.session.commit()
-            name = request.form["name"]
-            age = request.form["age"]
-            position = request.form["position"]
-            adress = request.form["adress"]
-            employee = EmployeeModel(
-                employee_id=id, name=name, age=age, position=position,
-                adress=adress
-            )
-            db.session.add(employee)
-            db.session.commit()
-            return redirect(f"/data/{id}")
-        return f"Employee with id = {id} Does nit exist"
+        employee.cpf = request.form["cpf"]
+        employee.name = request.form["name"]
+        employee.age = request.form["age"]
+        employee.position = request.form["position"]
+        employee.address = request.form["address"]
+        db.session.commit()
+        return redirect(f"/data/{id}")
 
     return render_template("update.html", employee=employee)
 
 
 @app.route("/data/<int:id>/delete", methods=["GET", "POST"])
 def delete(id):
-    employee = EmployeeModel.query.filter_by(employee_id=id).first()
+    employee = EmployeeModel.query.filter_by(id=id).first()
     if request.method == "POST":
         if employee:
             db.session.delete(employee)

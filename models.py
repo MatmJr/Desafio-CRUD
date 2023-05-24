@@ -7,18 +7,18 @@ class EmployeeModel(db.Model):
     __tablename__ = "table"
 
     id = db.Column(db.Integer, primary_key=True)
-    employee_id = db.Column(db.Integer(), unique=True)
+    cpf = db.Column(db.String(11))
     name = db.Column(db.String())
     age = db.Column(db.Integer())
     position = db.Column(db.String(80))
-    adress = db.Column(db.String(80))
+    address = db.Column(db.String(80))
 
-    def __init__(self, employee_id, name, age, position, adress):
-        self.employee_id = employee_id
+    def __init__(self, cpf, name, age, position, address):
+        self.cpf = cpf
         self.name = name
         self.age = age
         self.position = position
-        self.adress = adress
+        self.address = address
 
     def __repr__(self):
-        return f"{self.name}:{self.employee_id}"
+        return f"{self.name}:{self.id}"
