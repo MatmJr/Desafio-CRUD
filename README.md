@@ -1,32 +1,61 @@
-# Desafio-CRUD
-Um pequeno desafio envolvendo a construção de um CRUD.
+# Desafio CRUD
 
-### Avisos:
-- Não é um projeto obrigatório.
-- Abra uma branch para postar a sua resposta.
-- Você está livre para escolher as tecnologias que serão usadas.
-- Os projetos Finalizados vão para um repositório da turma.
-- Data de entrega: 17/04/2023
+# Contexto
+A criação de um CRUD (Create, Read, Update, Delete) é uma tarefa comum no desenvolvimento de aplicações web para gerenciar informações em um banco de dados. Uma das formas populares de criar um CRUD é usando o Flask, que é um framework de desenvolvimento web em Python.
 
-### Regras
-Um aplicativo da Web que lida com operações Criar/Recuperar/Atualizar ou Excluir é conhecido como aplicativo CRUD. 
+A criação de um CRUD usando Flask para gerenciar um banco de dados de funcionários em uma empresa envolve configurar o ambiente, criar um modelo de dados, definir rotas para as operações de CRUD, a implementação das operações de banco de dados foi feita usando SQLAlchemy, além disso foram criados templates para exibir as páginas da aplicação web. Com a aplicação desenvolvida, os funcionários podem adicionar, visualizar, atualizar e excluir informações de funcionários de forma fácil e rápida, melhorando a gestão de funcionários na empresa.
 
-Crie um CRUD simples que pode criar/recuperar/atualizar/excluir informações de funcionários.
+## Técnologias usadas
 
-Portanto, esta aplicação deve:
+Python3, Flask, SQLAlchemy, SQlite
 
-- Criar uma nova informação do funcionário
-- Consultar a lista de Empregados.
-- Consultar as informações de um funcionário específico.
-- Atualizar as informações de um funcionário
-- Excluir informações de um funcionário
 
-O banco de dados deve conter as informações:
+## Instalando Dependências
 
-ID_empregado: Inteiro
+> Criação e ativação do ambiente virtual
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+``` 
+> Instalação das libs
+```bash
+pip install -r requirements.txt
+``` 
+## Executando aplicação
 
-nome: Texto
+  ```
+  python3 app.py
+  ```
+## Rotas Implementadas
 
-Idade: Inteiro
+Tela inicial
+```
+rota("/")
+```
 
-Cargo: Texto
+Visualização do banco de dados
+```
+rota("/data")
+```
+
+Criação de um novo registro
+```
+rota("/data/create")
+```
+
+Visualização detalhada de um registro
+```
+rota("/data/<int:id>")
+```
+
+Atualização de um registro
+```
+rota("/data/<int:id>/update"
+```
+
+Exclusão de um registro
+```
+rota("/data/<int:id>/delete")
+```
+## Executando Testes
+
+Em breve

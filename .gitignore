@@ -1,0 +1,6 @@
+#ignorar arquivos do ambiente virtual
+.venv
+
+#aquivos desnecessários
+__pycache__
+.vscode
