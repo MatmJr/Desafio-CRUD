@@ -1,16 +1,7 @@
 from flask import Flask, render_template, request, redirect, abort
-from models import db, EmployeeModel
+from src.models import db, EmployeeModel
 
 app = Flask(__name__, template_folder="templates")
-
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-db.init_app(app)
-
-
-@app.before_first_request
-def create_table():
-    db.create_all()
 
 
 @app.route("/")
@@ -86,4 +77,4 @@ def delete(id):
     return render_template("delete.html")
 
 
-app.run(host="localhost", port=5000)
+
