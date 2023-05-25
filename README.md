@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ## Executando aplicação
 
   ```
-  python3 app.py
+  python3 main.py
   ```
 ## Rotas Implementadas
 
@@ -58,4 +58,6 @@ rota("/data/<int:id>/delete")
 ```
 ## Executando Testes
 
-Em breve
+```
+  python3 -m tests.test
+```
